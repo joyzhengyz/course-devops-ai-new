@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG Chat</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo">R</div>
+        <div class="title">RAG Chat</div>
+      </div>
+      <div class="tools">
+        <button id="themeToggle" class="ghost">切换主题</button>
+      </div>
+    </header>
+    <main class="content">
+      <section id="auth" class="card">
+        <div class="card-title">登录</div>
+        <div class="form-grid">
+          <input id="email" type="email" placeholder="邮箱" />
+          <input id="password" type="password" placeholder="密码" />
+          <div class="actions">
+            <button id="signin" class="primary">登录</button>
+            <button id="signup" class="secondary">注册</button>
+          </div>
+        </div>
+      </section>
+      <section id="chat" class="card hidden">
+        <div class="card-title">
+          <span id="user"></span>
+          <div class="card-tools">
+            <button id="signout" class="ghost">退出登录</button>
+          </div>
+        </div>
+        <div id="messages" class="messages"></div>
+        <form id="chat-form" class="composer">
+          <input id="question" type="text" placeholder="输入你的问题" />
+          <button id="sendBtn" type="submit" class="primary">发送</button>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
