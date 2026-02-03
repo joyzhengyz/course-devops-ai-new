@@ -90,6 +90,10 @@ def chat(query: Query):
         answer = chain.invoke(query.question)
         return {"answer": f"Helpful Answer: V5 {answer}"}
     except Exception as e:
+        # Log the error for debugging
+        print(f"❌ Error in /chat endpoint: {str(e)}")
+        import traceback
+        traceback.print_exc()
         # Return error message with proper status code
         return JSONResponse(
             status_code=500,
