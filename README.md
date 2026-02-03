@@ -78,7 +78,7 @@
   - `RAILWAY_SERVICE_ID`：服务 ID
 
 **部署与使用**
-- 在 Railway 项目中设置环境变量：`OPENAI_API_KEY` 与所有 `FIREBASE_*`。
+- 在 Railway 项目中设置环境变量：`OPENAI_API_KEY` 与所有 `FIREBASE_*`
 - 推送到 `main` 后，GitHub Actions 将自动构建、测试并部署到 Railway。
 - 部署完成后访问 `https://<railway-domain>/ui` 登录并开始聊天。
 
