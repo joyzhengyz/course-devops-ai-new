@@ -1,7 +1,7 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
@@ -90,7 +90,10 @@ def chat(query: Query):
         answer = chain.invoke(query.question)
         return {"answer": f"Helpful Answer: V5 {answer}"}
     except Exception as e:
-        # Return error message
-        return {"error": str(e)}, 500
+        # Return error message with proper status code
+        return JSONResponse(
+            status_code=500,
+            content={"error": str(e)}
+        )
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
